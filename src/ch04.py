@@ -6,8 +6,8 @@ app = marimo.App(app_title="Chap04")
 
 @app.cell
 def _():
-    import marimo as mo
     import polars as pl
+
     return (pl,)
 
 
@@ -26,9 +26,7 @@ def _(pl):
 @app.cell
 def _(df, pl):
     df_bmi = df.with_columns(
-        (
-            pl.col("weight") / ((pl.col("height") / 100) ** 2)
-        ).round(1).alias("BMI")
+        (pl.col("weight") / ((pl.col("height") / 100) ** 2)).round(1).alias("BMI")
     )
     df_bmi.head()
     return
