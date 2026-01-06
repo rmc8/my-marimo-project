@@ -9,6 +9,7 @@ def _():
     import time
 
     import marimo as mo
+
     return mo, time
 
 
